@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
 
+    //메인 무기(AttackRange)
     public GameObject weapon_Main;
 
     void Start()
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //이동 및 방향 조정
         float zMove = Input.GetAxis("Horizontal");
         float xMove = Input.GetAxis("Vertical");
 
@@ -40,14 +42,20 @@ public class Player : MonoBehaviour
 
     void WeaponOnOff()
     {
+        //realTime에 흘러가는 시간 적용
         realTime += Time.deltaTime;
-        if(realTime >= AttackTime && weapon_Main.activeSelf == true)
+
+        //realTime이 공격 시간보다 같거나 클 때 && weapon_Main가 켜져 있으면 작동
+        if (realTime >= AttackTime && weapon_Main.activeSelf == true)
         {
+            //weapon_Main을 끄고  realTime 초기화 
             weapon_Main.SetActive(false);
             realTime = 0;
         }
+        //realTime이 공격 대기시간 보다 같거나 클 때 && AttackRange가 꺼져 있으면 작동
         else if (realTime >= offAttackTime && weapon_Main.activeSelf == false)
         {
+            //weapon_Main을 키고  realTime 초기화 
             weapon_Main.SetActive(true);
             realTime = 0;
         }
