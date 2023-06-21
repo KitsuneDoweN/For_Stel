@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float Hp = 100;
     public float speed = 10f;
+
+    private float AttackTime = 1.0f;
+    private float realTime = 0f;
+    private float offAttackTime = 0.75f;
+
     Rigidbody rb;
 
     public GameObject weapon_Main;
@@ -13,9 +17,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        InvokeRepeating("WeaponOnOff", 1f, 1.5f);
     }
 
+    void Update()
+    {
+        WeaponOnOff();
+    }
     void FixedUpdate()
     {
         float zMove = Input.GetAxis("Horizontal");
@@ -33,17 +40,18 @@ public class Player : MonoBehaviour
 
     void WeaponOnOff()
     {
-        if(weapon_Main.activeSelf == true)
+        realTime += Time.deltaTime;
+        if(realTime >= AttackTime && weapon_Main.activeSelf == true)
         {
             weapon_Main.SetActive(false);
-            //Debug.Log("false");
+            realTime = 0;
         }
-        else if(weapon_Main.activeSelf == false)
+        else if (realTime >= offAttackTime && weapon_Main.activeSelf == false)
         {
             weapon_Main.SetActive(true);
-            //Debug.Log("true");
-
+            realTime = 0;
         }
-
+        
     }
+
 }
