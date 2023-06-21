@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    //따라갈 타겟(Player)
     public Transform target;
 
-    public float Enemy_Hp = 15;
     NavMeshAgent nav;
     Rigidbody rigid;
 
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //타겟 따라 가기
         nav.SetDestination(target.position);
     }
 }
