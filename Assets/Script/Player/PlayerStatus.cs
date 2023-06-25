@@ -6,8 +6,17 @@ public class PlayerStatus : MonoBehaviour
 {
     //Player Hp
     public float Hp = 60;
+    public GameObject player_object;
+
     private float DelayTime = 1.5f;
     private float realTime = 0;
+
+
+    private void Update()
+    {
+        Player_Death();
+    }
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -25,6 +34,15 @@ public class PlayerStatus : MonoBehaviour
             }
         }
 
+    }
+
+    private void Player_Death()
+    {
+        //HP 0 되면 삭제
+        if (Hp <= 0)
+        {
+            Destroy(player_object);
+        }
     }
 
 }

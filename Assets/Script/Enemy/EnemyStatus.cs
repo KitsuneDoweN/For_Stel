@@ -5,15 +5,22 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviour
 {
     public float Hp = 20;
+    public GameObject enemy_object;
     private float DelayTime = 1f;
     private float realTime = 0;
 
     PlayerWeapon playerWeapon;
 
+
     private void Awake()
     {
         //PlayerWeapon에서 변수 불러오기
         playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
+    }
+
+    private void Update()
+    {
+        Enemy_Death();
     }
 
     private void OnTriggerStay(Collider other)
@@ -33,8 +40,14 @@ public class EnemyStatus : MonoBehaviour
                 Debug.Log("monster -hp");
             }
         }
-
-
     }
 
+    private void Enemy_Death()
+    {
+        //HP 0 되면 삭제
+        if (Hp <= 0)
+        {
+            Destroy(enemy_object);
+        }
+    }
 }
