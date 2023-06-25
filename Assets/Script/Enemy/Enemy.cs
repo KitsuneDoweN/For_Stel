@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     //따라갈 타겟(Player)
-    public Transform target;
+    GameObject target_player;
 
     NavMeshAgent nav;
     Rigidbody rigid;
@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target_player = GameObject.FindWithTag("Player");
         rigid = GetComponent<Rigidbody>();
         nav = GetComponent<NavMeshAgent>();
     }
@@ -22,6 +23,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //타겟 따라 가기
-        nav.SetDestination(target.position);
+        nav.SetDestination(target_player.transform.position);
     }
 }

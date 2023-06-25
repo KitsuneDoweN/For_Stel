@@ -6,8 +6,11 @@ public class Player : MonoBehaviour
 {
     public float speed = 10f;
 
+    //공격 시간
     private float AttackTime = 1.0f;
+    //현재 시간
     private float realTime = 0f;
+    //공격 후 다시 켜지기 전까지 시간
     private float offAttackTime = 0.75f;
 
     Rigidbody rb;

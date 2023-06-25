@@ -9,13 +9,12 @@ public class EnemyStatus : MonoBehaviour
     private float DelayTime = 1f;
     private float realTime = 0;
 
-    PlayerWeapon playerWeapon;
-
+    //PlayerWeapon playerWeapon;
 
     private void Awake()
     {
         //PlayerWeapon에서 변수 불러오기
-        playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
+        //playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
     }
 
     private void Update()
@@ -35,7 +34,8 @@ public class EnemyStatus : MonoBehaviour
             if (DelayTime <= realTime)
             {
                 //playerWeapon에서 power 변수 가져와서 적용
-                Hp -= playerWeapon.power;
+                //Hp -= playerWeapon.power;
+                Hp -= 15.0f;
                 realTime = 0;
                 Debug.Log("monster -hp");
             }
