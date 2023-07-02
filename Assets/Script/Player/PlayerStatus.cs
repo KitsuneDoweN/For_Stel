@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,14 @@ public class PlayerStatus : MonoBehaviour
     public float Hp = 60;
     public GameObject player_object;
 
+    //레벨업 및 경험치 시스템
+    public float Level = 1;
+    private float Levelup = 1;
+    public float now_Player_Exp = 0;
+    public float Max_Player_Exp = 100;
+    public float stel_Exp = 10;
+
+    //딜레이타임
     private float DelayTime = 1.5f;
     private float realTime = 0;
 
@@ -15,8 +24,18 @@ public class PlayerStatus : MonoBehaviour
     private void Update()
     {
         Player_Death();
+        Player_LevelUp();
     }
 
+    private void Player_LevelUp()
+    {
+        //현재 경험치가 최대치에 되었을 때 레벨업 및 현재 경험치 초기화
+        if(now_Player_Exp >= Max_Player_Exp)
+        {
+            Level += Levelup;
+            now_Player_Exp = 0;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {

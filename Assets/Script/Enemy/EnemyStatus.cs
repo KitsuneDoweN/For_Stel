@@ -20,6 +20,7 @@ public class EnemyStatus : MonoBehaviour
     {
         //PlayerWeapon에서 변수 불러오기
         playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
+        //Stel_Exp 프리팹 찾기
         stel_Exp = Resources.Load<GameObject>("Prefab/Coin_Test_01_Prefab");
     }
 
@@ -43,14 +44,14 @@ public class EnemyStatus : MonoBehaviour
                 Hp -= playerWeapon.power;
                 //Hp -= 15.0f;
                 realTime = 0;
-                Debug.Log("monster -hp");
+                //Debug.Log("monster -hp");
             }
         }
     }
 
     private void Enemy_Death()
     {
-        //HP 0 되면 삭제
+        //HP 0 되면 enemy_object 삭제 및 죽은 enemy 위치에 Stel_Exp 생성
         if (Hp <= 0)
         {
             stel_Exp_position = enemy_object.transform.position;
