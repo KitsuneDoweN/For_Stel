@@ -6,15 +6,21 @@ public class EnemyStatus : MonoBehaviour
 {
     public float Hp = 20;
     public GameObject enemy_object;
+
+    public GameObject stel_Exp;
+
     private float DelayTime = 1f;
     private float realTime = 0;
 
-    //PlayerWeapon playerWeapon;
+    PlayerWeapon playerWeapon;
 
-    private void Awake()
+    Vector3 stel_Exp_position;
+
+    private void Start()
     {
         //PlayerWeapon에서 변수 불러오기
-        //playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
+        playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
+        stel_Exp = Resources.Load<GameObject>("Prefab/Coin_Test_01_Prefab");
     }
 
     private void Update()
@@ -34,8 +40,8 @@ public class EnemyStatus : MonoBehaviour
             if (DelayTime <= realTime)
             {
                 //playerWeapon에서 power 변수 가져와서 적용
-                //Hp -= playerWeapon.power;
-                Hp -= 15.0f;
+                Hp -= playerWeapon.power;
+                //Hp -= 15.0f;
                 realTime = 0;
                 Debug.Log("monster -hp");
             }
@@ -47,7 +53,10 @@ public class EnemyStatus : MonoBehaviour
         //HP 0 되면 삭제
         if (Hp <= 0)
         {
+            stel_Exp_position = enemy_object.transform.position;
+            stel_Exp.transform.position = stel_Exp_position;
             Destroy(enemy_object);
+            Instantiate(stel_Exp);
         }
     }
 }

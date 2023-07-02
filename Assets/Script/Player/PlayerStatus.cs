@@ -30,7 +30,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 Hp -= 1;
                 realTime = 0;
-                Debug.Log("player-hp");
+                //Debug.Log("player-hp");
             }
         }
 
