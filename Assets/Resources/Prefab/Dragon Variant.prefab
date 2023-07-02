@@ -54,7 +54,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.13
+  m_Radius: 0.11
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1010824463131551047
 Rigidbody:
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 20
   enemy_object: {fileID: 3168525215665583656}
-  enemy_transform: {fileID: 0}
   stel_Exp: {fileID: 3168525215665583656}
 --- !u!114 &4501151808767402847
 MonoBehaviour:
@@ -126,15 +125,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 393dc61e00cfca243a96698f936aceeb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 393dc61e00cfca243a96698f936aceeb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 393dc61e00cfca243a96698f936aceeb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 393dc61e00cfca243a96698f936aceeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -240,8 +239,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.26999998
-  m_BaseOffset: 0.13499999
+  m_Height: 0.15
+  m_BaseOffset: 0.075
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &862469679509781147
@@ -290,7 +289,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.13
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6132951567182203939
 MonoBehaviour:

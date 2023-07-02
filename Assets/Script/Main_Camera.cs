@@ -15,6 +15,6 @@ public class Main_Camera : MonoBehaviour
     void Update()
     {
         //카메라 좌표와 동일하게 설정
-        transform.position = player.transform.position + new Vector3(0, 84, -86);
+        transform.position = player.transform.position + new Vector3(0, 38f, -32);
     }
 }

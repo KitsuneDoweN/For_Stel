@@ -17,7 +17,7 @@ public class Random_Spawner : MonoBehaviour
         {
             //랜덤 스폰 범위
             float m_X = Random.Range(-250f, 250f);
-            float m_Y = Random.Range(3, 3);
+            float m_Y = Random.Range(1, 1);
             float m_Z = Random.Range(-250f, 250f);
 
             Instantiate(enemy_Object, new Vector3(m_X, m_Y, m_Z), Quaternion.identity);

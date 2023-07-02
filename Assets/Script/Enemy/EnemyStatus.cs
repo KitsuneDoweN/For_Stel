@@ -54,7 +54,7 @@ public class EnemyStatus : MonoBehaviour
         //HP 0 되면 enemy_object 삭제 및 죽은 enemy 위치에 Stel_Exp 생성
         if (Hp <= 0)
         {
-            stel_Exp_position = enemy_object.transform.position;
+            stel_Exp_position = enemy_object.transform.position - new Vector3(0,0.6194374f, 0);
             stel_Exp.transform.position = stel_Exp_position;
             Destroy(enemy_object);
             Instantiate(stel_Exp);
