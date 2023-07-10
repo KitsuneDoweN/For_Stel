@@ -33,10 +33,9 @@ public class Player : MonoBehaviour
         float zMove = Input.GetAxis("Horizontal");
         float xMove = Input.GetAxis("Vertical");
 
-        Vector3 getVel = new Vector3(zMove, 0, xMove) * speed;
+        Vector3 getVel = new Vector3(zMove * speed, rb.velocity.y, xMove * speed);
         rb.velocity = getVel;
-
-        getVel = xMove* Vector3.forward + zMove * Vector3.right;
+        getVel = xMove * Vector3.forward + zMove * Vector3.right;
 
         this.transform.rotation = Quaternion.LookRotation(getVel);
         
