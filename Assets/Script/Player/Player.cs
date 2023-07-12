@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 0;
 
     //공격 시간
     private float AttackTime = 1.0f;
@@ -13,7 +13,11 @@ public class Player : MonoBehaviour
     //공격 후 다시 켜지기 전까지 시간
     private float offAttackTime = 0.75f;
 
+    public Animator animator;
+
     Rigidbody rb;
+
+    Vector3 look;
 
     //메인 무기(AttackRange)
     public GameObject weapon_Main;
@@ -21,25 +25,37 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         WeaponOnOff();
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
+        Move();
+    }
+
+    void Move()
+    {
+        speed = 10;
+
         //이동 및 방향 조정
-        float zMove = Input.GetAxis("Horizontal");
         float xMove = Input.GetAxis("Vertical");
+        float zMove = Input.GetAxis("Horizontal");
 
-        Vector3 getVel = new Vector3(zMove * speed, rb.velocity.y, xMove * speed);
-        rb.velocity = getVel;
-        getVel = xMove * Vector3.forward + zMove * Vector3.right;
-
-        this.transform.rotation = Quaternion.LookRotation(getVel);
-        
-
+        if (xMove != 0 || zMove != 0)
+        {
+            look = new Vector3(zMove, 0, xMove);
+            transform.rotation = Quaternion.LookRotation(look);
+            Vector3 getVel = transform.forward.normalized * speed;
+            getVel.y = rb.velocity.y;
+            rb.velocity = getVel;
+            speed = 10;
+            //animator.SetBool("Test", true);
+        }
     }
 
     void WeaponOnOff()
@@ -63,5 +79,4 @@ public class Player : MonoBehaviour
         }
         
     }
-
 }

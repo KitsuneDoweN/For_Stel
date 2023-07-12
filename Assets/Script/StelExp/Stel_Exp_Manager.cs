@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Stel_Exp_Manager : MonoBehaviour
 {
     public GameObject stel_exp;
+
     PlayerStatus playerStatus;
 
     private void Start()

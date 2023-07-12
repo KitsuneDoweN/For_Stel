@@ -21,7 +21,7 @@ public class EnemyStatus : MonoBehaviour
         //PlayerWeapon에서 변수 불러오기
         playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
         //Stel_Exp 프리팹 찾기
-        stel_Exp = Resources.Load<GameObject>("Prefab/Coin_Test_01_Prefab");
+        stel_Exp = Resources.Load<GameObject>("Prefab/NavMesh_StelExp");
     }
 
     private void Update()
