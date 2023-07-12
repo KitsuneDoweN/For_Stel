@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 0;
+    public float speed = 10;
 
     //공격 시간
     private float AttackTime = 1.0f;
@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        speed = 10;
 
         //이동 및 방향 조정
         float xMove = Input.GetAxis("Vertical");
@@ -53,7 +52,6 @@ public class Player : MonoBehaviour
             Vector3 getVel = transform.forward.normalized * speed;
             getVel.y = rb.velocity.y;
             rb.velocity = getVel;
-            speed = 10;
             //animator.SetBool("Test", true);
         }
     }
