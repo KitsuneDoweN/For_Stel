@@ -42,9 +42,7 @@ public class EnemyStatus : MonoBehaviour
             {
                 //playerWeapon에서 power 변수 가져와서 적용
                 Hp -= playerWeapon.power;
-                //Hp -= 15.0f;
                 realTime = 0;
-                //Debug.Log("monster -hp");
             }
         }
     }

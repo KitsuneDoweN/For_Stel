@@ -6,12 +6,12 @@ using UnityEngine;
 public class Stel_Exp_Manager : MonoBehaviour
 {
     public GameObject stel_exp;
-
     PlayerStatus playerStatus;
 
     private void Start()
     {   //PlayerStatus 불러오기
         playerStatus = GameObject.Find("Status_").GetComponent<PlayerStatus>();
+        
     }
 
     private void OnTriggerStay(Collider other)
