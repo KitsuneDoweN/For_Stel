@@ -19,7 +19,7 @@ public class EnemyStatus : MonoBehaviour
     private void Start()
     {
         //PlayerWeapon에서 변수 불러오기
-        playerWeapon = GameObject.Find("AttackRange").GetComponent<PlayerWeapon>();
+        playerWeapon = GameObject.Find("AttackRange_").GetComponent<PlayerWeapon>();
         //Stel_Exp 프리팹 찾기
         stel_Exp = Resources.Load<GameObject>("Prefab/NavMesh_StelExp");
     }

@@ -2,40 +2,35 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
     //Player Hp
-    public float Hp = 60;
+    public float Hp = 0;
+    public float MaxHp = 60;
     public GameObject player_object;
 
     //레벨업 및 경험치 시스템
     public float Level = 1;
     private float Levelup = 1;
-    public int Start_Player_Exp = 0;
-    public int now_Player_Exp = 0;
-    public int Max_Player_Exp = 100;
-    public int stel_Exp = 10;
+    public float Start_Player_Exp = 0;
+    public float now_Player_Exp = 0;
+    public float Max_Player_Exp = 100;
+    public float stel_Exp = 10;
 
     //딜레이타임
     private float DelayTime = 1.5f;
     private float realTime = 0;
 
-    //UI연결
-    public Slider exp_slider;
+    private void Start()
+    {
+        Hp = MaxHp;
+    }
 
     private void Update()
     {
         Player_Death();
         Player_LevelUp();
-    }
-
-    public void ExpBar()
-    {
-        now_Player_Exp = Start_Player_Exp;
-        exp_slider.maxValue = Max_Player_Exp;
-        exp_slider.value = now_Player_Exp;
     }
 
     private void Player_LevelUp()

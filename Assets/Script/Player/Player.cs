@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     Vector3 look;
 
     //메인 무기(AttackRange)
-    public GameObject weapon_Main;
+    public Collider weapon_Main;
 
     void Start()
     {
@@ -62,17 +62,17 @@ public class Player : MonoBehaviour
         realTime += Time.deltaTime;
 
         //realTime이 공격 시간보다 같거나 클 때 && weapon_Main가 켜져 있으면 작동
-        if (realTime >= AttackTime && weapon_Main.activeSelf == true)
+        if (realTime >= AttackTime && weapon_Main.enabled == true)
         {
             //weapon_Main을 끄고  realTime 초기화 
-            weapon_Main.SetActive(false);
+            weapon_Main.enabled = false;
             realTime = 0;
         }
         //realTime이 공격 대기시간 보다 같거나 클 때 && AttackRange가 꺼져 있으면 작동
-        else if (realTime >= offAttackTime && weapon_Main.activeSelf == false)
+        else if (realTime >= offAttackTime && weapon_Main.enabled == false)
         {
             //weapon_Main을 키고  realTime 초기화 
-            weapon_Main.SetActive(true);
+            weapon_Main.enabled = true;
             realTime = 0;
         }
         
