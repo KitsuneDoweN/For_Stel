@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GameObject.Find("Unity_Kanna").GetComponent<Animator>();
     }
 
     void Update()
@@ -52,7 +52,11 @@ public class Player : MonoBehaviour
             Vector3 getVel = transform.forward.normalized * speed;
             getVel.y = rb.velocity.y;
             rb.velocity = getVel;
-            //animator.SetBool("Test", true);
+            animator.SetInteger("playerState", 1);
+        }
+        else
+        {
+            animator.SetInteger("playerState", 0);
         }
     }
 

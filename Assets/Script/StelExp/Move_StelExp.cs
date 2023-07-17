@@ -15,7 +15,7 @@ public class Move_StelExp : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
